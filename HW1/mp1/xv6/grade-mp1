@@ -1,0 +1,191 @@
+#!/usr/bin/env python
+
+from gradelib import *
+
+r = Runner()
+
+@test(10, "thread package with public testcase part1-0")
+def test_thread_0():
+    r.run_qemu(shell_script([
+        'mp1-part1-0',
+    ]))
+    r.match(
+    'mp1-part1-0',
+    'thread 1: 100',
+	'thread 2: 0',
+	'thread 3: 10000',
+	'thread 1: 101',
+	'thread 2: 1',
+	'thread 3: 10001',
+	'thread 1: 102',
+	'thread 2: 2',
+	'thread 3: 10002',
+	'thread 1: 103',
+	'thread 2: 3',
+	'thread 3: 10003',
+	'thread 1: 104',
+	'thread 2: 4',
+	'thread 3: 10004',
+	'thread 1: 105',
+	'thread 2: 5',
+	'thread 1: 106',
+	'thread 2: 6',
+	'thread 1: 107',
+	'thread 2: 7',
+	'thread 1: 108',
+	'thread 2: 8',
+	'thread 1: 109',
+	'thread 2: 9',
+	'',
+	'exited'
+    )
+
+@test(10, "thread package with public testcase part1-1")
+def test_thread_0():
+    r.run_qemu(shell_script([
+        'mp1-part1-1',
+    ]))
+    r.match(
+    'mp1-part1-1',
+    'thread 1: 100',
+	'thread 2: 0',
+	'thread 3: 10000',
+	'thread 1: 101',
+	'thread 2: 1',
+	'thread 4: 1000',
+	'thread 5: 10',
+	'thread 3: 10001',
+	'thread 1: 102',
+	'thread 2: 2',
+	'thread 4: 1001',
+	'thread 5: 11',
+	'thread 3: 10002',
+	'thread 1: 103',
+	'thread 2: 3',
+	'thread 4: 1002',
+	'thread 5: 12',
+	'thread 1: 104',
+	'thread 2: 4',
+	'thread 4: 1003',
+	'thread 5: 13',
+	'thread 2: 5',
+	'thread 4: 1004',
+	'thread 5: 14',
+	'thread 2: 6',
+	'thread 4: 1005',
+	'thread 5: 15',
+	'thread 2: 7',
+	'thread 4: 1006',
+	'thread 5: 16',
+	'thread 2: 8',
+	'thread 4: 1007',
+	'thread 4: 1008',
+	'',
+	'exited'
+    )
+
+@test(5, "thread package with public testcase part2-0")
+def test_thread_0():
+    r.run_qemu(shell_script([
+        'mp1-part2-0',
+    ]))
+    r.match(
+	'mp1-part2-0',
+	'thread 1: 100',
+	'handler 3: 20',
+	'thread 1: 101',
+	'handler 3: 22',
+	'thread 1: 102',
+	'handler 3: 24',
+	'thread 3: 10000',
+	'thread 1: 103',
+	'thread 3: 10001',
+	'thread 1: 104',
+	'thread 3: 10002',
+	'thread 1: 105',
+	'',
+	'exited',
+    )
+
+@test(5, "thread package with public testcase part2-1")
+def test_thread_0():
+    r.run_qemu(shell_script([
+        'mp1-part2-1',
+    ]))
+    r.match(
+	'mp1-part2-1',
+	'thread 1: 100',
+	'thread 2: 0',
+	'thread 3: 10000',
+	'thread 1: 101',
+	'handler 2: 1',
+	'thread 2: 1',
+	'thread 3: 10001',
+	'thread 1: 102',
+	'thread 2: 2',
+	'thread 3: 10002',
+	'thread 1: 103',
+	'thread 2: 3',
+	'thread 3: 10003',
+	'thread 1: 104',
+	'thread 2: 4',
+	'handler 3: 21',
+	'thread 1: 105',
+	'thread 2: 5',
+	'handler 3: 23',
+	'thread 1: 106',
+	'thread 2: 6',
+	'handler 3: 25',
+	'thread 1: 107',
+	'thread 2: 7',
+	'handler 3: 27',
+	'thread 1: 108',
+	'thread 2: 8',
+	'handler 3: 29',
+	'thread 3: 10004',
+	'thread 1: 109',
+	'thread 2: 9',
+	'',
+	'exited',
+    )
+
+@test(5, "thread package with public testcase part2-2")
+def test_thread_0():
+    r.run_qemu(shell_script([
+        'mp1-part2-2',
+    ]))
+    r.match(
+    'mp1-part2-2',
+	'thread 1: 100',
+	'handler 2: 45',
+	'thread 3: 10000',
+	'thread 1: 101',
+	'handler 2: 47',
+	'thread 4: 1000',
+	'thread 5: 10',
+	'thread 3: 10001',
+	'thread 1: 102',
+	'handler 2: 49',
+	'thread 4: 1001',
+	'thread 5: 11',
+	'thread 3: 10002',
+	'thread 1: 103',
+	'handler 2: 51',
+	'thread 2: 0',
+	'thread 5: 12',
+	'handler 3: 0',
+	'thread 3: 10003',
+	'thread 1: 104',
+	'thread 2: 1',
+	'handler 5: 25',
+	'thread 3: 10004',
+	'thread 2: 2',
+	'handler 5: 30',
+	'thread 3: 10005',
+	'thread 2: 3',
+	'handler 5: 35',
+    '',
+    'exited'
+    )
+
+run_tests()
